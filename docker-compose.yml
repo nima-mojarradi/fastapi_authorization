@@ -1,11 +1,11 @@
 services:
-  mongodb-Cont:
-    image: mongo:latest 
-    container_name: mongoDB-Cont 
-    ports:
-      - 27017:27017 
+  redis:
+    container_name: redis
+    image: redis:7.2
+    networks:
+      - main
     volumes:
-      - mongodb_data_conf:/data/db
+      - redis_data:/data
 
 volumes:
   mongodb_data_conf:    

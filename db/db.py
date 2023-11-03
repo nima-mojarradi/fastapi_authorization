@@ -29,14 +29,11 @@
 
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-
-uri = "mongodb://localhost:27017/"
+uri = "mongodb://localhost:27017"
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
-db = client['podcasts']
-users_table = db['user']
-
-# Send a ping to confirm a successful connection
+db = client.get_database('podcast_manager')
+users_collection = db.get_collection('users')
 try:
     client.admin.command('ping')
     print("Pinged your deployment. You successfully connected to MongoDB!")

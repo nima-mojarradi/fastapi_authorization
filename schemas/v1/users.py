@@ -7,7 +7,7 @@ from pydantic import BaseModel, Field
 import pymongo 
 from typing import ClassVar
 from bson import ObjectId
-from fastapi_jwt_auth import AuthJWT
+# from fastapi_jwt_auth import AuthJWT
 
 
 class UserSignUp(BaseModel):
@@ -15,6 +15,7 @@ class UserSignUp(BaseModel):
    last_name : str
    username : str
    password : str
+   password2: str
    email : str
    phone_number : str
 
@@ -22,4 +23,3 @@ class UserSignUp(BaseModel):
 class UserLogin(BaseModel):
    username : str
    password : str
-
