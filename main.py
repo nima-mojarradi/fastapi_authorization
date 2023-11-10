@@ -1,20 +1,9 @@
 from fastapi import FastAPI
-from fastapi import APIRouter
-import pymongo 
-import uuid
-from pydantic import BaseModel, Field
-import pymongo 
-from bson import ObjectId
-# from authorization.api.v1.users import user_router
-from api.v1.users import user_router
-# from api.v1.user 
+from api.v1.users import user_router 
 
 app = FastAPI()
+app.include_router(router=user_router, prefix="")
 
-# client=pymongo.MongoClient(host='127.0.0.1', port=27017)
-
-# app.include_router(prefix='', router=user_router)
-app.include_router(prefix='', router=user_router)
 
 
 

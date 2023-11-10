@@ -1,11 +1,20 @@
+version: '3.3'
+
 services:
-  redis:
-    container_name: redis
-    image: redis:7.2
-    networks:
-      - main
-    volumes:
-      - redis_data:/data
+
+    redisserver:
+      container_name: redisserver
+      image: redis:7.2
+      ports: 
+        - 6380:6380
+      networks:
+        - main
+      volumes:
+        - redisserver_data:/data
+
+
+networks:
+  main:
 
 volumes:
-  mongodb_data_conf:    
+  redisserver_data:
