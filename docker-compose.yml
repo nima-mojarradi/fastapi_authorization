@@ -1,11 +1,20 @@
+version: '3.3'
+
 services:
-  mongodb-Cont:
-    image: mongo:latest 
-    container_name: mongoDB-Cont 
-    ports:
-      - 27017:27017 
-    volumes:
-      - mongodb_data_conf:/data/db
+
+    redisserver:
+      container_name: redisserver
+      image: redis:7.2
+      ports: 
+        - 6380:6380
+      networks:
+        - main
+      volumes:
+        - redisserver_data:/data
+
+
+networks:
+  main:
 
 volumes:
-  mongodb_data_conf:    
+  redisserver_data:
